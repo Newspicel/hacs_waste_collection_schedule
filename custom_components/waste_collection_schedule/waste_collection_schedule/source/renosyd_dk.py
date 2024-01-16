@@ -36,7 +36,7 @@ DANISH_MONTHS = [
     "feb",
     "mar",
     "apr",
-    "may",
+    "maj",
     "jun",
     "jul",
     "aug",
@@ -97,7 +97,7 @@ class Source:
             months.append(datetime.date(this_year, DANISH_MONTHS.index(value), 1))
 
             if value == "dec":
-                this_year = +1
+                this_year += 1
 
         entries = []
 
@@ -107,7 +107,7 @@ class Source:
             elements = row.find_all("td")
 
             result = re.search(
-                r"^(\d{1,2}\s?x\s?)([A-Za-z\/]*)(\s*\d{1,4}L)?$",
+                r"^(\d{1,2}\s?x\s?)([A-Za-z\/]*)(\s*\d{1,4}\s?L)?$",
                 elements[0].contents[0].strip(),
             )
             if result is None:
